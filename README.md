@@ -1,6 +1,14 @@
 # My Portfolio
 This is a compilation of a small porfolio I've developed during my journey.
 
+## Data Analytics
+[Link to slides my data analysis on World of Warcraft](Data_Manipulation.pdf)
+
+![image](https://github.com/RolandasLeon/GameDevPortfolio/assets/72037048/6eb079d6-73e4-44b2-af62-049588c3496a)
+
+Includes various graphs and code on visualisations all done in "R"
+
+
 ## Most recent project (Download Git Repo To Play)
 My second, the game I put in the most amount of work into is in this git repo which features a 2D Platformer game to show off how a modern Metroidvania game plays out from start to finish.
 ![image](https://github.com/RolandasLeon/GameDevPortfolio/assets/72037048/52b296cf-3e0b-45c2-baff-ee3c7c11bb7f)
@@ -17,6 +25,8 @@ As I don't have the files anymore I still have a youtube video of the game which
 [![Spotify App](https://img.youtube.com/vi/5p6KBzC5My0/hqdefault.jpg)](https://youtu.be/5p6KBzC5My0)
 
 ## PowerApps Projects
+[A report with more examples and work I have done in the Power Platform](https://1drv.ms/u/s!AlofhCYB4B9ilCMMzFNT5zI8mUZd?e=ndYeyk)
+
 ![image](https://github.com/RolandasLeon/GameDevPortfolio/assets/72037048/4a372c66-5762-4d08-bf8c-00e398a81a8f)
 
 ![image](https://github.com/RolandasLeon/GameDevPortfolio/assets/72037048/f192d977-13c1-4004-a8c7-ccddbcde915b)
@@ -25,5 +35,3 @@ As I don't have the files anymore I still have a youtube video of the game which
 
 ![image](https://github.com/RolandasLeon/GameDevPortfolio/assets/72037048/65d85c26-3f24-41da-8ec3-8b7ef1fda133)
 
-
-<iframe src='https://view.officeapps.live.com/op/embed.aspx?src=[https://1drv.ms/p/s!AlofhCYB4B9ilB1X4osLs5hUoEoY?e=hDa6nM]' width='100%' height='600px' frameborder='0'>

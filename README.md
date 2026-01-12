@@ -1,6 +1,29 @@
 # My Portfolio
 This is a compilation of a small porfolio I've developed during my journey.
 
+## Recent PowerApp Examples
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/58973cbe-ea3c-411d-a58d-3189beda5df6" width="32%" />
+  <img src="https://github.com/user-attachments/assets/48e7b4fc-caae-4b73-9c0e-ddee1add63ef" width="32%" /> 
+  <img src="https://github.com/user-attachments/assets/d4d30f5c-bc7d-439d-bc1e-db4bf4092433" width="32%" />
+</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/29d8b197-e3bd-4c5a-b440-930262d92f5b" width="32%" />
+  <img src="https://github.com/user-attachments/assets/954f9226-0eb5-41ce-b08f-8cbcf8aad125" width="32%" />
+  <img src="https://github.com/user-attachments/assets/05673950-d32a-4df9-b016-07509f3cef05" width="32%" />
+</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/5c08303b-3d4c-479f-a248-7202456505ee" width="32%" />
+  <img src="https://github.com/user-attachments/assets/6bdc157b-22cb-4c47-afcd-2177476568d2" width="32%" />
+  <img src="https://github.com/user-attachments/assets/9b1a9e89-d13a-4d8c-b0a2-3e0193d9a7c3" width="32%" />
+</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/45d96112-a1d5-41ce-ac61-80adb989593a" width="32%" />
+  <img src="https://github.com/user-attachments/assets/e06d4b05-3917-4de8-89fc-99d2dce245db" width="32%" />
+  <img src="https://github.com/user-attachments/assets/8b84ff79-6e0f-485a-89c0-273bacfa8277" width="32%" />
+</p>
+
+
 ## Data Analytics
 [Link to slides my data analysis on World of Warcraft](Data_Manipulation.pdf)
 

@@ -23,6 +23,81 @@ This is a compilation of a small porfolio I've developed during my journey.
   <img src="https://github.com/user-attachments/assets/8b84ff79-6e0f-485a-89c0-273bacfa8277" width="32%" />
 </p>
 
+## 4 Percentage Slider Code Example
+<p align="center"><img width="60%"  alt="2026-01-12 12_56_37-Settings" src="https://github.com/user-attachments/assets/1e8057d6-c798-41c1-be20-292016f77819" /></p>
+
+
+I built a custom algorithm to manage four connected sliders that adjusts the total usable value per slider. The challenge was ensuring that when a user moves one slider, the others adjust proportionally rather than just cutting off the next available value. I also built a 'locking' feature, allowing users to pin specific values while the remaining sliders auto-balance around them.
+<details>
+<summary><b>Click to view the Slider Logic Code</b></summary>
+  
+```powerapps
+If(
+    !updating,
+    Set(updating, true);
+
+    With({
+        // 1. Capture Inputs and calculate Locking constraints
+        // We use With() to create local variables, avoiding global Set() clutter
+        reqVal: Min(100, Max(0, Round(Slider2_4.Value, 0))),
+        wLockLLC: LockLLC,
+        wLockSEL: LockSEL,
+        wLockOPAL: LockOPAL
+    },
+    With({
+        // 2. Calculate the Locked Total (Values that cannot move)
+        lockedTotal: (If(wLockLLC, LLCSliderpct2, 0) + If(wLockSEL, SELSliderpct3, 0) + If(wLockOPAL, OPALSliderpct4, 0))
+    },
+    With({
+        // 3. Determine the new value for the active slider (PDMS)
+        newPDMS: Min(reqVal, 100 - lockedTotal)
+    },
+    With({
+        // 4. Calculate Remainder and Eligible Weights for distribution
+        rem: 100 - newPDMS - lockedTotal,
+        // Only get current values if they are UNLOCKED. Otherwise weight is 0.
+        wLLC: If(!wLockLLC, LLCSliderpct2, 0),
+        wSEL: If(!wLockSEL, SELSliderpct3, 0),
+        wOPAL: If(!wLockOPAL, OPALSliderpct4, 0)
+    },
+    With({
+        // 5. Sum of weights to determine ratios
+        weightSum: wLLC + wSEL + wOPAL
+    },
+    With({
+        // 6. Calculate New Values (The Logic Core)
+        // If weights exist (>0), distribute proportionally.
+        // If weights are 0 (all unlocked are 0), fill the first available unlocked slider.
+        calcLLC: If(weightSum > 0, 
+                    Round(rem * (wLLC / weightSum), 0), 
+                    If(!wLockLLC, rem, 0)
+                  ),
+        calcSEL: If(weightSum > 0, 
+                    Round(rem * (wSEL / weightSum), 0), 
+                    If(!wLockLLC, 0, If(!wLockSEL, rem, 0))
+                  )
+        // We do not calculate OPAL here; we will use subtraction later to ensure 100% match
+    },
+        // 7. Execute Updates
+        // Apply final values. For the last item (OPAL), we subtract the others from 'rem' to catch rounding errors.
+        Set(PDMSSliderpct1, newPDMS);
+        Set(LLCSliderpct2, If(wLockLLC, LLCSliderpct2, calcLLC));
+        Set(SELSliderpct3, If(wLockSEL, SELSliderpct3, calcSEL));
+        Set(OPALSliderpct4, If(wLockOPAL, OPALSliderpct4, rem - calcLLC - calcSEL));
+
+        // 8. Reset Sliders
+        // Use Concurrent for better performance. Only reset if the value actually changed.
+        Concurrent(
+            If(!wLockLLC && LLCSliderpct2 <> calcLLC, Reset(Slider2_5)),
+            If(!wLockSEL && SELSliderpct3 <> calcSEL, Reset(Slider2_6)),
+            If(!wLockOPAL && OPALSliderpct4 <> (rem - calcLLC - calcSEL), Reset(Slider2_7))
+        )
+    ))))));
+
+    Set(updating, false)
+)
+```
+</details>
 
 ## Data Analytics
 [Link to slides my data analysis on World of Warcraft](Data_Manipulation.pdf)
